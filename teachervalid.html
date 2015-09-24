@@ -1,0 +1,177 @@
+<html>
+<head>
+	<title>AmbiTeach</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Cantarell:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="icon.png" />
+	
+	<style>
+		::-webkit-scrollbar
+		{
+		  width: 12px;  /* for vertical scrollbars */
+		  height: 12px; /* for horizontal scrollbars */
+		}
+
+		::-webkit-scrollbar-track
+		{
+		  background: rgba(0, 0, 0, 0.1);
+		}
+
+		::-webkit-scrollbar-thumb
+		{
+		  background: rgba(0, 0, 0, 0.8);
+		  border-radius:5px;
+		}
+		input
+		{
+			font-size 2em;
+			border-radius:7px;
+			background: rgba(43,49,104,1);
+			color:white;
+			border: white 2px solid;
+			
+		}
+		body{
+			overflow-x: hidden;
+			overflow-y: hidden;
+			background-image: url("repeatback.png");
+			background-size: 100% auto;
+			background-repeat: repeat-y;
+			font-family: 'Quicksand', sans-serif;
+			min-width:900px;
+		}
+		.buttons
+		{
+			color:white;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			 user-select: none;
+			 cursor:pointer;
+		}
+		#logo{cursor:pointer;}
+		#signin:hover
+		{color: rgba(200,200,255,1);}
+		#about:hover
+		{color: rgba(200,200,255,1);}
+		#join:hover
+		{color: rgba(200,200,255,1);}
+		#contact:hover
+		{color: rgba(200,200,255,1);}
+		.homediv{
+			border-radius:10px;
+			border: white 3px solid;
+			background: rgba(122,186,244,0.66);
+			width:95%;
+			left: 2.5%;
+			height:50vh;
+			position:absolute;
+			top:30vh;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+		.alternate tr:nth-child(even){
+			background: #FFFFFF;
+		}
+		.alternate tr:nth-child(even){
+			background: #f2f2f2;
+		}
+	</style>
+</head>
+<body >
+	<div style="background-color:rgba(0,0,0,0.7); width:101%; height:60px; position:absolute; left:-2px; top:-2px; border-bottom: black 1px solid">
+		<table style="width: 80%;">
+		<tr>
+				<td>
+					<img id="logo" src="ambiteach_alt.png" style="width:25vmax;" alt="logo"></img>
+				</td>
+				<td>
+					<strong><span style="color: #ffffff;">&#9947; Ambi Track</span></strong>
+				</td>
+				<td>
+					<strong><span style="color: #ffffff;">&#9947; Your Classes</span></strong>
+				</td>
+				<td>
+					<strong><span style="color: #ffffff;">&#9947; Log Out</span></strong>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div nowrap style="position:absolute; left:-11%; width: 111%;top: 11%; height: 81%; background-color: rgba(0,0,0,0.4); padding-bottom: 2.5%;">
+		<center>
+			<table style="padding-left: 6.4%; color:black; width: 80%;">
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td></td>
+								<td style="color:#ffffff;">
+									Visual Learners
+								</td>
+								<td style="color:#ffffff;">
+									Auditory Learners
+								</td>
+								<td style="color:#ffffff;">
+									Kinesthetic Learners
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<p style="transform: rotate(-90deg); color:white; font-size: 1.2vw;">Student Understanding Rating (1-5)</p>
+								</td>
+								<td>
+									<canvas id="myCanvas" style="border: 2px black solid; border-radius: 0px;"></canvas>
+								</td>
+								<td>
+									<canvas id="myCanvas2" style="border: 2px black solid; border-radius: 0px;"></canvas>
+								</td>
+								<td>
+									<canvas id="myCanvas3" style="border: 2px black solid; border-radius: 0px;"></canvas>
+								</td>
+								<td>
+									<canvas id="myCanvas4" style="padding-left: 3%;"></canvas>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td style="color:white; font-size: 1.3vw;">Student Satisfaction Rating (1-5)</td>
+								<td style="color:white; font-size: 1.3vw;">Student Satisfaction Rating (1-5)</td>
+								<td style="color:white; font-size: 1.3vw;">Student Satisfaction Rating (1-5)</td>
+							</tr>
+						</table>
+					<td>
+				</tr>
+				<tr>
+					<td style="padding-left:10vw;">
+						<div style="border: 2px black solid;  width: 66vw; height: 11vw; background-color:white;; overflow-y: scroll;">
+							<table class="alternate" style="width:100%;">
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Comments:</p></td></tr>
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Test Comment</p></td></tr>
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Test Comment</p></td></tr>
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Test Comment</p></td></tr>
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Test Comment</p></td></tr>
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Test Comment</p></td></tr>
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Test Comment</p></td></tr>
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Test Comment</p></td></tr>
+								<tr><td><p style="font-family: Times New Roman; font-size: 1.1vmax;">Test Comment</p></td></tr>
+							</table>			
+						</div>
+					</td>
+				</tr>
+				<tr >
+					<td style="padding-left:10vw;">
+						<input type="text" style="color:black; width: 55vw; border-radius: 0px; border: 1px black solid; background: white;"></input>
+						<button style="width:11vw; background:white; border-radius: 0px; border: black 1px solid;">Post</button>	
+					</td>
+				</tr>
+			</table>
+		</center>
+			<script src="scripts/type1.js"></script>
+			
+	</div>
+</body>
+</html>
